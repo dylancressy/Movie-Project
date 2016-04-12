@@ -1,3 +1,8 @@
 # Movie-Project
+Team Members:
+Dylan Cressy Charles Li Hao Wu
 
-This is my first README.
+4/12
+- Docs okay for now.
+- XML okay
+- no email assignment yet
