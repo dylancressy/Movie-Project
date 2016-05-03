@@ -80,7 +80,9 @@
 				<li><a href="contact.html">Contact</a></li>
 			</ul>
 		</div>
-			<div id="feature">
+			<div id="feature" class="group1-Wrapper">
+    			<a onclick="imageSlider.previous()" class="group1-Prev"></a>
+    			<a onclick="imageSlider.next()" class="group1-Next"></a>
      		 	<h3>Coming Soon</h3>
 				<p>
 				<a href="http://www.imdb.com/title/tt4824302/?pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=2446567422&pf_rd_r=043W4NK6Z66C0CNB8DKE&pf_rd_s=right-3&pf_rd_t=15061&pf_rd_i=homepage&ref_=hm_otw_t1"><img src="http://www.eonline.com/eol_images/Entire_Site/201627/rs_634x1024-160307112611-634.mothers-day.cm.3716.jpg" alt="one" height="400" width="270"/></a>
@@ -154,7 +156,6 @@
 				<hr />
 				<br>
 				<iframe width="330" height="280" src="https://www.youtube.com/embed/ky3vqdL3TJw"></iframe>
-				<br>
 				<br>
 				<hr />
 				<h5><a href="https://www.youtube.com/user/movieclipsTRAILERS/videos"> More Trailers... </a></h5>
@@ -236,4 +237,17 @@
 			<p>&copy; Copyright 2016 - <a href="">Subscribe to Newsletter</a></p>
 		</div>
 	</body>
+<script type="text/javascript">
+    function switchAutoAdvance() {
+        imageSlider.switchAuto();
+        switchPlayPauseClass();
+    }
+    function switchPlayPauseClass() {
+        var auto = document.getElementById('auto');
+        var isAutoPlay = imageSlider.getAuto();
+        auto.className = isAutoPlay ? "group2-Pause" : "group2-Play";
+        auto.title = isAutoPlay ? "Pause" : "Play";
+    }
+    switchPlayPauseClass();
+</script>
 </html>
