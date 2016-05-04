@@ -1,10 +1,13 @@
 <?php
+session_start();
 include_once 'dbconnect.php';
 if ( isset ( $_POST["submit"] ) ){
 	$name = $_POST['name'];
 	$comment =$_POST['comment'];
-	if($name && $comment){
-		$query = $MySQLi_CON->query("INSERT INTO comments ( name , comment ) VALUES ( '$name', '$comment' )" );
+	$title =$_POST['title'];
+	
+	if($name && $comment && $title){
+		$query = $MySQLi_CON->query("INSERT INTO comments ( name , title, comment ) VALUES ( '$name', '$title', '$comment' )" );
 	}
 	else{
 		echo "Please fill in all fields!";
@@ -61,25 +64,32 @@ if ( isset ( $_POST["submit"] ) ){
 		</div>			
 		<div id="nav">
 			<ul>
-				<li><a href="flixpix.html">Home</a></li>
-				<li><a href="news.html">News</a></li>
+				<li><a href="flixpix.php">Home</a></li>
+				<li><a href="news.php">News</a></li>
 				<li><a href="">Bookmarks</a></li>
-				<li><a href="">Log In</a></li>
-				<li><a href="comment.php">Forum</a></li>
-				<li><a href="about.html">About</a></li>
-				<li><a href="contact.html">Contact</a></li>
+				<?php
+					if ( !isset( $_SESSION['userSession'] ) ) {
+						echo '<li><a href="index.php">Log In</a></li>';
+					} else {
+						echo '<li><a href="logout.php">Log Out</a></li>';
+					}
+				?>
+				<li><a href="forum.php">Forum</a></li>
+				<li><a href="about.php">About</a></li>
+				<li><a href="contact.php">Contact</a></li>
 			</ul>
 		</div>
 			<div id="feature">
      		 	<h3>Leave a Comment</h3>
 				<?php
-					$sql = "SELECT name, comment FROM comments";
+					$sql = "SELECT name, title, comment FROM comments";
 					$result = $MySQLi_CON->query($sql);
 					if ($result->num_rows > 0) {
-					     echo "<table><tr><th>Name</th>    <th>Comment</th></tr>";
+					     echo "<table><tr><th>Name</th><th>Title</th><th>Comment</th></tr>";
 					     // output data of each row
 						     while($row = $result->fetch_assoc()) {
-					         echo "<tr><td>" . $row["name"]. "</td><td>" . $row["comment"] . "</td></tr>";
+					         echo "<tr><td>" . $row["name"]. "</td><td>" . $row["title"]. "</td><td>" . 
+					         $row["comment"] . "</td></tr>";
 					     }
 				     echo "</table>";
 				     } else {
@@ -91,6 +101,10 @@ if ( isset ( $_POST["submit"] ) ){
 				<br>
 				<form method= "POST" id = "comment">
 					Name: <br><input type = "text" name = "name" required/>
+					<br>
+					<br>
+					<br>
+					Title: <br><input type = "text" name = "title" required/>
 					<br>
 					<br>
 					<br>
