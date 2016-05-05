@@ -4,7 +4,7 @@ session_start();
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>FlixPix - Reset Password</title>
+		<title>FlixPix - Forgot Password</title>
 		<style type="text/css">
 			* {
 				font-family: "Trebuchet MS", Helvetica, sans-serif;
@@ -27,7 +27,7 @@ session_start();
 				padding: 0.5px;
   				border-style: solid;}
 			#feature {
-				height: 200px;
+				height: 100px;
 				margin-bottom: 1px;
 				background-color: #efefef;
 				padding: 5px;
@@ -56,23 +56,15 @@ session_start();
 			</ul>
 		</div>
 			<div id="feature">
-     		 	<h3>Reset Password</h3>
-				<?php echo 
-				'<form action="reset.php" method="POST">
-				E-mail Address: <input type="text" name="email" size="20" />
-				<br>
-				New Password: <input type="password" name="password" size="20" />
-				<br>
-				Confirm Password: <input type="password" name="confirmpassword" size="20" />
-				<br>
-				<input type="hidden" name="q" value="';
-				if (isset($_GET["q"])) {
-					echo $_GET["q"];
-				}
-				echo '" /><input type="submit" name="ResetPasswordForm" value=" Reset Password " />
-				</form>'
+     		 	<h3>Forgot Your Password?</h3>
+     		 	<?php 
+					echo '
+					<form action="change.php" method="post">
+						Email Address: <input type="text" name="email" size="20" />
+						<input type="submit" name="ForgotPassword" value="Request Reset" />
+					</form>';
 				?>
-		</div>
+			</div>
 		<div id="footer">
 			<p>&copy; Copyright 2016 - <a href="">Subscribe to Newsletter</a></p>
 		</div>

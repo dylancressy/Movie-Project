@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -38,13 +40,19 @@
 		</div>			
 		<div id="nav">
 			<ul>
-				<li><a href="flixpix.html">Home</a></li>
-				<li><a href="news.html">News</a></li>
-				<li><a href="">Bookmarks</a></li>
-				<li><a href="">Log In</a></li>
-				<li><a href="">Forum</a></li>
-				<li><a href="about.html">About</a></li>
-				<li><a href="contact.html">Contact</a></li>
+				<li><a href="flixpix.php">Home</a></li>
+				<li><a href="news.php">News</a></li>
+				<!-- <li><a href="">Bookmarks</a></li> -->
+				<?php
+					if ( !isset( $_SESSION['userSession'] ) ) {
+						echo '<li><a href="index.php">Log In</a></li>';
+					} else {
+						echo '<li><a href="logout.php">Log Out</a></li>';
+					}
+				?>
+				<li><a href="forum.php">Forum</a></li>
+				<li><a href="about.php">About</a></li>
+				<li><a href="contact.php">Contact</a></li>
 			</ul>
 		</div>
 			<div id="feature">

@@ -42,7 +42,7 @@ session_start();
 			<ul>
 				<li><a href="flixpix.php">Home</a></li>
 				<li><a href="news.php">News</a></li>
-				<li><a href="">Bookmarks</a></li>
+				<!-- <li><a href="">Bookmarks</a></li> -->
 				<?php
 					if ( !isset( $_SESSION['userSession'] ) ) {
 						echo '<li><a href="index.php">Log In</a></li>';
