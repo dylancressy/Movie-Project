@@ -90,6 +90,8 @@ if(isset($_POST['btn-login'])) {
             
             <a href="register.php" class="btn btn-default" style="float:right;">Sign UP Here</a>
             <a href="flixpix.php" class="btn btn-default" style="float:right;">Back to FlixPix</a>
+            <a href="forgot_password.php" class="btn btn-default" style="float:right;">Forgot Password?</a>
+
             
         </div>  
         
