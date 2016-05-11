@@ -26,6 +26,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `user_name` varchar(25) NOT NULL,
   `user_email` varchar(35) NOT NULL,
   `user_pass` varchar(255) NOT NULL,
+  `type`      int(5)       NOT NULL
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `user_email` (`user_email`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
